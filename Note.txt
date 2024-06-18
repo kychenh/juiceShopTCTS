@@ -1,0 +1,5 @@
+set PLAYWRIGHT_BROWSERS_PATH=D:\playwright_browsers
+set ENV=qa
+cd D:\Projects\JuiceShop_ts
+npx playwright test
+npx playwright show-report
