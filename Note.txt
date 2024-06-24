@@ -1,5 +1,62 @@
-set PLAYWRIGHT_BROWSERS_PATH=D:\playwright_browsers
-set ENV=qa
-cd D:\Projects\JuiceShop_ts
-npx playwright test
-npx playwright show-report
+Note : below setup/ run for window platform. 
+
+Information : 
+- source code git link : 
+
+    https://github.com/kychenh/juiceShopTCTS.git
+    
+- the example website is : 
+    https://juice-shop.herokuapp.com
+
+#---------------------------------------------------------------------------------------------
+Setup : 
+#---------------------------------------------------------------------------------------------
+- install latest version of nodejs platform : 
+    see this link to download package and install instruction. 
+    https://nodejs.org/en/download/package-manager
+
+- install dependency : 
+    + download the source code . 
+    + from current from of source code. eg: c:\candidate\
+    + run command : 
+
+        npm install
+
+- Download the playwright driver to a specific folder : 
+    + run below command in window terminal (cmd): 
+
+        set PLAYWRIGHT_BROWSERS_PATH=%USERPROFILE%\pw-browsers
+        npx playwright install
+
+- verify install is successfully by run below command : 
+    npm list
+
+    + the expect output should be : 
+```
++-- @playwright/test@1.44.1
+`-- @types/node@20.14.2
+```
+
+
+#---------------------------------------------------------------------------------------------
+RUN : 
+#---------------------------------------------------------------------------------------------
+To run test case, please run the below command in order respectively. Firstly, open window terminal (cmd)
+
+    set PLAYWRIGHT_BROWSERS_PATH=%USERPROFILE%\playwright_browsers
+    set ENV=qa
+    cd <replace the folder path to source code here>
+    npx playwright test
+    npx playwright show-report
+
+#---------------------------------------------------------------------------------------------
+SOURCE CODE 
+#---------------------------------------------------------------------------------------------
+
+to change the configuration of the project , there some files below that can help : 
+
+- testConfig.ts : this will help to swtich between the baseurl , the paramater could be used throughout the test case. 
+- playwright.config.ts : this file will configure the browse need to run, the timeout when loading a page, the number of thread to run in parallel, etc... 
+- folder pageFactory : contain the page object of web application. 
+- folder test : contain the test case for each feature. 
+

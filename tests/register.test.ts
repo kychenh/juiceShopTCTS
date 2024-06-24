@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 import { resourceUsage } from 'process';
 import { testConfig } from '../testConfig';
 
-test("1 verify user can goto register form", async ({loginPage, registerform}) => {
+test("Verify user can goto register form", async ({loginPage, registerform}) => {
     await test.step("Open login page", async () => {
         await loginPage.navigateToURL();
     });
@@ -75,7 +75,7 @@ test("Verify the ummatch password show error message", async ({loginPage, regist
     });
 
     await test.step("Enter password field 2", async () => {
-        await registerform.PASSWORD1_INPUT.fill('password2');
+        await registerform.PASSWORD2_INPUT.fill('password2');
     });
 
     await test.step("Verify error unmatch message is shown", async () => {
@@ -94,7 +94,7 @@ test("Verify the valid data allow to register successfully", async ({loginPage, 
     });
 
     await test.step("Fill data for all fields", async () => {
-        await registerform.fillData(testConfig.username, testConfig.password, testConfig.password, '' , '01/01/2000'); 
+        await registerform.fillData(testConfig.username, testConfig.password, testConfig.password, 'Company you first work for as' , 'google'); 
     });
 
     await test.step("Click submit button", async () => {
@@ -112,7 +112,7 @@ test("Verify the valid data allow to register successfully", async ({loginPage, 
     // });
 });
 
-test("Verify the hyperlink 'alredy customer' lead to login form", async ({loginPage, registerform}) => {
+test("Verify the hyperlink 'already customer' lead to login form", async ({loginPage, registerform}) => {
     await test.step("Goto Register Form by URL ", async () => {
         await registerform.gotoRegisterFormByURL();
     });
@@ -131,3 +131,4 @@ test("Verify the hyperlink 'alredy customer' lead to login form", async ({loginP
         
 //     })
 // })
+

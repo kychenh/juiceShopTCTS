@@ -15,6 +15,7 @@ export class WelcomForm {
 
     async DismissIfAppear(): Promise<void> {
         // Check if a dialog is visible (modify selector as needed)
+        await this.page.waitForTimeout(1000)
         const isDialogVisible = await this.DISMISS_BUTTON.isVisible();
 
         if (isDialogVisible) {
